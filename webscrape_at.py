@@ -7,6 +7,7 @@ import re
 import os
 import datetime
 import logging
+
 logging.basicConfig(filename='scrapelog.txt', filemode='w', level=logging.INFO, format='%(asctime)s - %(message)s', datefmt='%d-%b-%y %H:%M:%S')
 #logging.getLogger().addHandler(logging.StreamHandler())
 
