@@ -4,10 +4,8 @@ Web scraping and analysis of autotrader adverts, to build a used car pricing mod
 ## Summary
 - Wrote a web scraper to extract used car advert details from online marketplace for Audi A6's.
 - Engineered features including age, mileage, fsh, quattro, engine size etc.
-- Trained a *simple* regression model based on only 'age' and 'mileage' features:
-  - Best model was a tuned Support Vector Machine with an R^2 score of 0.911 on the testing set and mean absolute error (MAE) of £1622.
-- Trained a *complex* regression model based on all engineered features:
-  - Best model was a tuned Support Vector Machine with an R^2 score of 0.965 on the testing set and mean absolute error (MAE) of £961.
+- With only 2 features (age and mileage) a tuned Support Vector Machine achieved R^2=0.911 and MAE=£1622.
+- Best model overall model was again a tuned Support Vector Machine, with R^2=0.965 and MAE=£961.
 
 [[Link to notebook](https://nbviewer.jupyter.org/github/adin786/autotrader-analysis/blob/main/autotrader_analysis.ipynb)]  [[Link to webscraper code](https://github.com/adin786/autotrader-analysis/blob/main/webscrape_at.py)]
 
