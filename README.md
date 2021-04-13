@@ -11,10 +11,14 @@ Web scraping and analysis of autotrader adverts, to build a used car pricing mod
 
 [[Link to notebook](https://nbviewer.jupyter.org/github/adin786/autotrader-analysis/blob/main/autotrader_analysis.ipynb)]  [[Link to webscraper code](https://github.com/adin786/autotrader-analysis/blob/main/webscrape_at.py)]
 
-**Table of Contents**<br>
+### Table of Contents
 1. [Data exploration results](#data-exploration-results)
 2. [Modelling results](#modelling-results)
 3. [Model comparison table](#model-comparison-table) 
+
+## Prerequisites
+**Libraries used:** Pandas, Numpy, Requests, BeautifulSoup4, Matplotlib, Seaborn, Scikit-learn, 
+
 
  ## Data exploration results
 ![corrmat.png](/images/corrmat.png)
@@ -44,17 +48,18 @@ Model revision was calculated by binning the registration dates according to som
 ![](/images/quattro.png)
 
 ## Modelling results
+Trained 
 - Simple model achieved 
 
 ## Model comparison table
 |    | name                      |    cv_mean |     cv_std |   mae_test |    mse_test |    r2_test |
 |---:|:--------------------------|-----------:|-----------:|-----------:|------------:|-----------:|
-|  0 | linreg basic              | 0.802644   | 0.0124396  |    2245.16 | 9.48089e+06 | 0.812901   |
-|  1 | linreg with poly features | 0.878056   | 0.00745929 |    1736.65 | 5.41615e+06 | 0.893116   |
-|  2 | Elastic-net               | 0.808763   | 0.0294758  |    2426.46 | 8.93401e+06 | 0.823693   |
-|  3 | knn basic                 | 0.888031   | 0.0146579  |    1745.24 | 4.919e+06   | 0.902927   |
-|  4 | knn with poly features    | 0.890029   | 0.0154029  |    1729.91 | 4.78117e+06 | 0.905647   |
-|  5 | SVR alternative           | 0.00689301 | 0.0048019  |    5346.68 | 5.05368e+07 | 0.00268901 |
-|  6 | svr tuned                 | 0.896578   | 0.00670467 |    1622.79 | 4.52914e+06 | 0.91062    |
-|  7 | Tree                      | 0.863868   | 0.0168414  |    1889.9  | 5.78553e+06 | 0.885826   |
-|  8 | Forest                    | 0.863933   | 0.0175657  |    1869.28 | 5.6953e+06  | 0.887607   |
+|  0 | Linreg basic              | 0.803      | 0.0124     |    2245    | 9.5e+06     | 0.813      |
+|  1 | Linreg with poly features | 0.878      | 0.0075     |    1737    | 5.4e+06     | 0.893      |
+|  2 | Elastic-net               | 0.809      | 0.0295     |    2426    | 8.9e+06     | 0.824      |
+|  3 | KNN basic                 | 0.888      | 0.0147     |    1745    | 4.9e+06     | 0.903      |
+|  4 | KNN complex               | 0.890      | 0.0154     |    1730    | 4.9e+06     | 0.906      |
+|  5 | SVR (bad fit)             | 0.007      | 0.0048     |    5347    | 5.1e+07     | 0.003      |
+|  6 | SVR tuned                 | 0.897      | 0.0067     |    1623    | 4.5e+06     | 0.911      |
+|  7 | Tree                      | 0.864      | 0.0168     |    1890    | 5.8e+06     | 0.886      |
+|  8 | Forest                    | 0.864      | 0.0176     |    1869    | 5.7e+06     | 0.888      |
