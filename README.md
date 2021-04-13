@@ -20,7 +20,8 @@ Web scraping and analysis of autotrader adverts, to build a used car pricing mod
 My dataset is not uploaded so to repeat my analysis you will have to run my webscraper script.
 
 ## Data exploration results
-In terms of numerical features, both `age` and `mileage` were very strongly correlated with the target variable `price`.  These were the only 2 numerical parameters used in my analysis, everything else was engineered or binned into categorical features.webscrape_at.py
+In terms of numerical features, both `age` and `mileage` were very strongly correlated with the target variable `price`.  These were the only 2 numerical parameters used in my analysis, everything else was engineered or binned into categorical features.
+
 ![corrmat.png](/images/corrmat.png)
 
 I used regex to extract categorical featurrs from the advert text etc.
