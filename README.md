@@ -3,7 +3,7 @@ Web scraping and analysis of autotrader adverts, to build a used car pricing mod
 
 ## Summary
 - Wrote a web scraper to extract used car advert details from online marketplace for Audi A6's.
-- Engineered features including age, mileage, fsh, quattro, engine size etc.
+- Engineered 11 features including age, mileage, fsh, quattro, engine size etc.
 - With only 2 features (age and mileage) a tuned Support Vector Machine achieved R^2=0.91 and MAE=£1622.
 - Best model overall model was again a tuned Support Vector Machine, with R^2=0.97 and MAE=£961.
 
