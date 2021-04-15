@@ -69,29 +69,38 @@ This resulted in a reasonable improvement in model fitting accuracy while still 
 
 Further tuning and ensembling may be ways to improve this.
 
+#### Inspecting the model
+It was not trivial to visually inspect the multiple-regression model due to it's high dimensionality.  Since we know there were 2 variables which were strongly correlated with the target variable (`age` and `mileage`), all input features except these were held constant at their median or most-frequent values.  The below plots show how the model predicted price against age or mileage while holding the other input constant at 0/25/50/75/100% quartiles in order to show the full response surface of the model. 
+![svrplot](/images/svr.png)
+
+The predicted response over these continuous inputs was smooth which bodes well for generalisability.  This is in contrast with the next best model, which was a Random Forest Regressor.  Here the predicted response was less uniform and smooth.  This is due to the orthogonal decision boundaries that random forest works with and could be smoother by adjusting hyperparameters such as how deep each tree in the forest is allowed to be.
+![forestplot](/images/forest.png)
+
+In both models, by looking at the spread of the quartile lines it is clear that age is predicted to be a more important feature, with stronger model weighting compared to mileage.  The permutation feature importance is plotted below, confirming this.  It also shows that of the binary features, the presence of "black edition" and "ultra" in the advert text were the biggest influences on price, followed by "engine_size" as the most significant categorical feature.
+![permutation_svr](/images/permutation_svr.png)
+
+
 ### Model comparison table (simple model)
 |    | name                      |    cv_mean |     cv_std |   mae_test |    mse_test |    r2_test |
 |---:|:--------------------------|-----------:|-----------:|-----------:|------------:|-----------:|
 |  0 | Linreg basic              | 0.802644   | 0.0124396  |    2245.16 | 9.48089e+06 | 0.812901   |
 |  1 | Linreg with poly features | 0.878056   | 0.00745929 |    1736.65 | 5.41615e+06 | 0.893116   |
 |  2 | Elastic-net               | 0.808763   | 0.0294758  |    2426.46 | 8.93401e+06 | 0.823693   |
-|  3 | KNN basic                 | 0.888031   | 0.0146579  |    1745.24 | 4.919e+06   | 0.902927   |
-|  4 | KNN with poly features    | 0.890029   | 0.0154029  |    1729.91 | 4.78117e+06 | 0.905647   |
-|  5 | SVR alternative           | 0.00689301 | 0.0048019  |    5346.68 | 5.05368e+07 | 0.00268901 |
-|  6 | SVR tuned                 | 0.896578   | 0.00670467 |    1622.79 | 4.52914e+06 | 0.91062    |
-|  7 | Tree                      | 0.863705   | 0.0176042  |    1863.78 | 5.67888e+06 | 0.887931   |
-|  8 | Forest                    | 0.865559   | 0.0174099  |    1866.68 | 5.68772e+06 | 0.887756   |
+|  3 | KNN                       | 0.890029   | 0.0154029  |    1729.91 | 4.78117e+06 | 0.905647   |
+|  4 | SVR                       | 0.00689301 | 0.0048019  |    5346.68 | 5.05368e+07 | 0.00268901 |
+|  5 | SVR tuned                 | 0.896578   | 0.00670467 |    1622.79 | 4.52914e+06 | 0.91062    |
+|  6 | Tree                      | 0.863705   | 0.0176042  |    1863.78 | 5.67888e+06 | 0.887931   |
+|  7 | Forest                    | 0.865559   | 0.0174099  |    1866.68 | 5.68772e+06 | 0.887756   |
 
 ### Model comparison table (complex model)
 |    | name                           |   cv_mean |     cv_std |   mae_test |    mse_test |   r2_test |
 |---:|:-------------------------------|----------:|-----------:|-----------:|------------:|----------:|
 |  0 | Linreg complex                 |  0.923708 | 0.0113085  |   1280.97  | 2.83365e+06 |  0.94408  |
 |  1 | Linreg complex + poly features |  0.94751  | 0.00473454 |   1159.01  | 2.20182e+06 |  0.956548 |
-|  2 | KNN complex                    |  0.943013 | 0.0100798  |   1184.57  | 3.06284e+06 |  0.939557 |
-|  3 | KNN complex + poly             |  0.951666 | 0.00797216 |   1076.34  | 2.25113e+06 |  0.955575 |
-|  4 | SVR complex                    |  0.960544 | 0.00256924 |    961.387 | 1.75286e+06 |  0.965408 |
-|  5 | Tree complex                   |  0.916312 | 0.0210107  |   1427.26  | 3.79339e+06 |  0.92514  |
-|  6 | Forest complex                 |  0.954217 | 0.00429592 |   1048.9   | 1.87811e+06 |  0.962937 |
+|  2 | KNN complex + poly             |  0.951666 | 0.00797216 |   1076.34  | 2.25113e+06 |  0.955575 |
+|  3 | SVR complex                    |  0.960544 | 0.00256924 |    961.387 | 1.75286e+06 |  0.965408 |
+|  4 | Tree complex                   |  0.916312 | 0.0210107  |   1427.26  | 3.79339e+06 |  0.92514  |
+|  5 | Forest complex                 |  0.954217 | 0.00429592 |   1048.9   | 1.87811e+06 |  0.962937 |
 
 ## Future work
 - I could make this into a web app to deploy the code online and offer users a streamlined way to make selling price suggestions for their own car.  
