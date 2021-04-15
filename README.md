@@ -71,13 +71,16 @@ Further tuning and ensembling may be ways to improve this.
 
 #### Inspecting the model
 It was not trivial to visually inspect the multiple-regression model due to it's high dimensionality.  Since we know there were 2 variables which were strongly correlated with the target variable (`age` and `mileage`), all input features except these were held constant at their median or most-frequent values.  The below plots show how the model predicted price against age or mileage while holding the other input constant at 0/25/50/75/100% quartiles in order to show the full response surface of the model. 
+
 ![svrplot](/images/svr.png)
 
 The predicted response over these continuous inputs was smooth which bodes well for generalisability.  This is in contrast with the next best model, which was a Random Forest Regressor.  Here the predicted response was less uniform and smooth.  This is due to the orthogonal decision boundaries that random forest works with and could be smoother by adjusting hyperparameters such as how deep each tree in the forest is allowed to be.
+
 ![forestplot](/images/forest.png)
 
 In both models, by looking at the spread of the quartile lines it is clear that age is predicted to be a more important feature, with stronger model weighting compared to mileage.  The permutation feature importance is plotted below, confirming this.  It also shows that of the binary features, the presence of "black edition" and "ultra" in the advert text were the biggest influences on price, followed by "engine_size" as the most significant categorical feature.
-![permutation_svr](/images/permutation_svr.png)
+
+![permutation_svr](/images/permutation_svr2.png)
 
 
 ### Model comparison table (simple model)
