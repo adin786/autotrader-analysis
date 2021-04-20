@@ -110,3 +110,6 @@ In both models, by looking at the spread of the quartile lines it is clear that 
 - At the moment this model only works for an Audi A6, the approach could be made less brand specific by eliminating features like `is_quattro` or `is_s_line` etc, and by scraping data across other brands/models.
 - Additional features could be extracted by also scraping from each advert's detail page, though this data appeared to be behind JavaScript dynamic page elements and may require an alternative web-scraping approach.
 - Potentially could try license plate recognition and then look to bring in data from DVLA (if possible to extract more data about mot history etc, but that is a big project when even my simple models are producing accurate predictions).
+
+## Note on web-scraping
+The use of data collected by the researchers for this study is covered by the Intellectual Property Office’s Exceptions to Copyright for Non-Commercial Research and Private Study (https://www.gov.uk/guidance/exceptions-to-copyright)
