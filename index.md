@@ -84,6 +84,7 @@ In both models, by looking at the spread of the quartile lines it is clear that 
 
 
 ### Model comparison table (simple model)
+
 |    | name                      |    cv_mean |     cv_std |   mae_test |    mse_test |    r2_test |
 |---:|:--------------------------|-----------:|-----------:|-----------:|------------:|-----------:|
 |  0 | Linreg basic              | 0.802644   | 0.0124396  |    2245.16 | 9.48089e+06 | 0.812901   |
@@ -96,6 +97,7 @@ In both models, by looking at the spread of the quartile lines it is clear that 
 |  7 | Forest                    | 0.865559   | 0.0174099  |    1866.68 | 5.68772e+06 | 0.887756   |
 
 ### Model comparison table (complex model)
+
 |    | name                           |   cv_mean |     cv_std |   mae_test |    mse_test |   r2_test |
 |---:|:-------------------------------|----------:|-----------:|-----------:|------------:|----------:|
 |  0 | Linreg complex                 |  0.923708 | 0.0113085  |   1280.97  | 2.83365e+06 |  0.94408  |
